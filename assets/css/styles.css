@@ -7,7 +7,18 @@ body {
     min-height: 100vh;
     flex-direction: column;
   }
+body, html {
+  height: 100%;
+}
 
   main {
     flex: 1 0 auto;
+  }
+
+  .hero-bg-img {
+    background-image: url("http://127.0.0.1:5500/assets/images/Hero-img.png");
+    height: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
   }
