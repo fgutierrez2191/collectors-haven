@@ -9,13 +9,13 @@
      <!-- Compiled and minified CSS -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./assets/css/description.css">
-    <title>Collectors haven</title>
+    <title>Collector's Haven</title>
 </head>
 <body>
     <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Collectors Haven</a>
+                <a href="index.html" class="brand-logo">Collectors Haven</a>
                 <ul id="nav-mobile" class="right">
                     <li><a href="./index.html">Home</a></li>
                     <li><a href="./collection.html">Collection</a></li>
@@ -25,26 +25,25 @@
         </nav>
     </header>
     <main>
-        <div class="container main-container">
+        <br />
+        <a class="waves-effect waves-light btn-small" id="back-button"><i class="material-icons left">arrow_back</i>go back</a>
+        <div class="container main-container">   
             <!--get json from https://api.rawg.io/api/games/league-of-legends-->
             <div class="title-container">
                     <div class="title">
-                        <h2 id="game-title">__League of Legends</h2>
-                        <p>Developer: <span id="game-developer">Riot Games</span></p>
+                        <h2 id="game-title"></h2>
+                        <p>Developer: <span id="game-developer"></span></p>
                         <!--#game-meta class changes based on metascore(0-49 = .meta-good / 50-74 = .meta-better / 75-100 = .meta-best)-->
-                        <p>ESRB Rating: <span id="game-rating">Teen</span> | Metascore: <span id="game-meta" class="meta-best">80</span></p>
+                        <p>ESRB Rating: <span id="game-rating"></span> | Metascore: <span id="game-meta" class="meta-best"></span></p>
                     </div>
-                <img id="game-img" src="https://media.rawg.io/media/games/78b/78bc81e247fc7e77af700cbd632a9297.jpg">
+                <img id="game-img" src="#">
             </div>
-            <p id="game-description">League of Legends is a fast-paced, competitive online game that blends the speed and intensity of an RTS with RPG elements. 
-                Two teams of powerful champions, each with a unique design and playstyle, battle head-to-head across multiple battlefields and game modes. 
-                With an ever-expanding roster of champions, frequent updates and a thriving tournament scene, 
-                League of Legends offers endless replayability for players of every skill level.</p>
+            <p id="game-description"></p>
                 <br />
 
             <!--show 4 similar games from https://api.rawg.io/api/games/league-of-legends/suggested-->
             <h5>Games like this:</h5>
-            <div class="row" id="similar-games-container">
+            <div class="similar-container" id="similar-games-container">
             </div>
             
         </div>
@@ -56,10 +55,10 @@
                 <div class="container">
                     © 2014 Copyright Text
                     <h6 class="grey-text">Made by: </h6>
-                    <a class="white-text" href="#">Kevin Simmons</a>
-                    <a class="white-text" href="#">Aldrin Burgos</a>
-                    <a class="white-text" href="#">Felix Gutierrez</a>
-                    <a class="white-text" href="#">Sarah Dawn</a>
+                    <a class="white-text" href="#" target="_blank">Kevin Simmons</a>
+                    <a class="white-text" href="https://github.com/aldrinburgos18/" target="_blank">Aldrin Burgos</a>
+                    <a class="white-text" href="#" target="_blank">Felix Gutierrez</a>
+                    <a class="white-text" href="#" target="_blank">Sarah Dawn</a>
                 </div>
             </div>
         </footer>

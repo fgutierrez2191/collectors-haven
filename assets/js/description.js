@@ -1,10 +1,25 @@
 var apiKey = "6437d7b67fed4c86b31916a8970016a6";
-var gameID = "valorant";
 
+//get gameID from previous page
+var gameID = function() {
+    //grab game name from url query string
+    var queryString = document.location.search;
+    var gameName = queryString.split("=")[1];
 
-var getGameInfo = function() {
-    //format the rawg
-    var apiUrl = `https://api.rawg.io/api/games/${gameID}?key=${apiKey}`;
+    if(gameName) {
+        //display game info and similar games
+        similarGames(gameName);
+        getGameInfo(gameName);
+    } else {
+        //if no game name was given, redirect to homepage
+        document.location.replace("./index.html");
+    }
+};
+
+//pull selected game's information from rawg api
+var getGameInfo = function(selectedGame) {
+    //format the rawg api
+    var apiUrl = `https://api.rawg.io/api/games/${selectedGame}?key=${apiKey}`;
 
     //make a request to the url
     fetch (apiUrl)
@@ -13,7 +28,11 @@ var getGameInfo = function() {
     }).then(displayGameInfo);
 };
 
+//display game's information to page
 var displayGameInfo = function(description) {
+    //set HTML title
+    document.title = `${description.name} :: Collector's Haven`;
+
     var gameTitle = document.getElementById("game-title");
     gameTitle.innerText=`${description.name}`;
     
@@ -25,18 +44,25 @@ var displayGameInfo = function(description) {
     gameScreenshot.src = description.background_image;
 
     var esrbRating = document.getElementById("game-rating");
+
+    //some games have "null" as their esrb rating
     if (description.esrb_rating != null){
         esrbRating.innerText=`${description.esrb_rating.name}`;
     } else {
+        //to fix that, the page will show N/A for such pages
         esrbRating.innerText="N/A";
     }
 
     var metascore = document.getElementById("game-meta");
+    //some games have "null" as their metacritic rating
     if (description.metacritic != null) {
         metascore.innerText=`${description.metacritic}`;
     } else {
+        //to fix that, the page will show N/A for such pages
         metascore.innerText="N/A"
-    }
+    };
+
+    //metascore color changes based on the metacritic score of the game
     metascore.classList.remove("meta-good", "meta-better", "meta-best")
     if (description.metacritic <= 49) {
         metascore.classList.add("meta-good");
@@ -51,8 +77,9 @@ var displayGameInfo = function(description) {
 
 };
 
-var similarGames = function() {
-    var apiUrl = `https://api.rawg.io/api/games/${gameID}/suggested?apikey=${apiKey}`;
+//pull similar games from different rawg api link
+var similarGames = function(similarGame) {
+    var apiUrl = `https://api.rawg.io/api/games/${similarGame}/suggested?apikey=${apiKey}`;
 
     fetch(apiUrl)
     .then(similar => {
@@ -60,9 +87,11 @@ var similarGames = function() {
     }).then(displaySimilarGames);
 }
 
+//display similar games to page
 var displaySimilarGames = function(similar) {
     similar.results.forEach( (element, index) => {
-        if (index >= 4) {
+        //display 6 similar games to page
+        if (index >= 6) {
             return;
         } else {
             var containerEl = document.getElementById("similar-games-container");
@@ -72,10 +101,15 @@ var displaySimilarGames = function(similar) {
             similarCardEl.classList.add("card", "col", "s6");
             containerEl.appendChild(similarCardEl);
 
+            //opens description page for similar games
+            var createLink = document.createElement("a");
+            createLink.setAttribute("href", `description.html?game=${element.slug}`);
+            similarCardEl.appendChild(createLink);
+
             //create div for img
             var similarImageEl = document.createElement("div")
             similarImageEl.classList.add("card-image");
-            similarCardEl.appendChild(similarImageEl);
+            createLink.appendChild(similarImageEl);
             var similarImage = document.createElement("img");
             similarImage.src = element.background_image;
             similarImageEl.appendChild(similarImage);
@@ -83,21 +117,27 @@ var displaySimilarGames = function(similar) {
             //create div for similar games' title and desc
             var similarGamesContentEl = document.createElement("div");
             similarGamesContentEl.classList.add("card-content");
-            similarCardEl.appendChild(similarGamesContentEl);
+            createLink.appendChild(similarGamesContentEl);
 
-            //similar game title
+            //similar game's title
             var similarGameTitle = document.createElement("span");
             similarGameTitle.classList.add("card-title");
             similarGameTitle.innerText = element.name;
             similarGamesContentEl.appendChild(similarGameTitle);
 
+            //similar game's description
             var similarGameDesc = document.createElement("p");
             similarGameDesc.innerText = element.short_description;
             similarGamesContentEl.appendChild(similarGameDesc);
-
         };
     });
 };
 
-similarGames();
-getGameInfo();
+//go back 1 page when back button is clicked
+document.getElementById("back-button").addEventListener("click", () => {
+    history.back()
+  });
+
+/* similarGames();
+getGameInfo(); */
+gameID();
