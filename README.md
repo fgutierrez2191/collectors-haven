@@ -17,3 +17,6 @@ Built a searchable app, to give the user information about various video games t
 - Css
 - Third-Party Api's
 - Materialize
+
+## Contribution
+Made by [Aldrin Burgos, Felix Gutierrez, Sarah McNeel, Kevin Simmons]

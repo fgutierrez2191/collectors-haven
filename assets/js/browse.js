@@ -19,10 +19,12 @@ var apiKey = "e847de5a9548492c99c3bc645cdafa81"
 function getUserInput() {
     var userInput = document.getElementById("search").value;
     return userInput
+    //for loop to generate cards??
 }
 //function to make fetch request to rawg api 
 function getRawgData() {
     var userInput = document.getElementById("search").value; 
+    console.log(userInput);
     fetch('https://rawg.io/api/games/id?'+ userInput + '?key=' + apiKey + '')
     .then(function (response) {
         return response.json();
