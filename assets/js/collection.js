@@ -8,9 +8,12 @@ main.appendChild(row);
 
 
 var priceCall = function() {
+
+    // var game = localStorage.getItem("collection");
     
-    var game = ['death stranding', 'borderlands 2', "uncharted"];
+    var game = ['death stranding', 'borderlands 2', 'uncharted 4', 'tonyhawk pro skater', 'skate 3', 'the last of us', 'horizon zero dawn', 'batman arkham city', 'bioshock', 'dishonored', 'ratchet and clank', 'disney infinite', 'final fantasy IX', 'time splitters 2'];
     
+
     game.forEach(vGame => { 
         fetch('https://www.pricecharting.com/api/products?t=b6347e4a9a79ac34e52eadd448892dfc961d6569&q=' + vGame)
         .then(function(response) {
@@ -25,7 +28,7 @@ var priceCall = function() {
 
                 // card
             var card = document.createElement("div");
-            card.className = "card";
+            card.className = "card medium";
             column.appendChild(card);
 
                 //CARD-ACTION-AREA
@@ -69,7 +72,11 @@ var priceCall = function() {
                 var gameDescription = document.createElement("p");
                 gameDescription.textContent = "Cib-price: $" + response.products[0]["cib-price"] / 100;
                 cardContent.appendChild(gameDescription);
-            
+                //LINK TO DESCRIPTION
+                var descriptionLink = document.createElement("a");
+                descriptionLink.textContent = "Game Description";
+                descriptionLink.setAttribute("href", "./description.html")
+                cardContent.appendChild(descriptionLink);
         })
     })
 }
