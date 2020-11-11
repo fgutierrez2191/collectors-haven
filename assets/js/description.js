@@ -72,9 +72,31 @@ var displayGameInfo = function(description) {
         metascore.classList.add("meta-best");
     };
 
+    var priceUrl = `https://www.pricecharting.com/api/products?t=b6347e4a9a79ac34e52eadd448892dfc961d6569&q=${description.slug}`
+
+    //pull selected game's price from pricecharting.com's api
+    fetch (priceUrl)
+    .then(price => {
+        return price.json();
+    }).then(gamePriceEl => {
+        var gamePrice = document.getElementById("game-price");
+
+        //if no results in api, display N/A
+        if (!gamePriceEl.products[0]) {
+            gamePrice.innerText="N/A"
+        //check if both api's are showing the same game, if not, display N/A 
+        } else if (gamePriceEl.products[0]["product-name"] != description.name) {
+            gamePrice.innerText="N/A"
+        //if game price is 0, display "free-to-play"
+        } else if (gamePriceEl.products[0]["cib-price"] == 0) {
+                gamePrice.innerText="Free-to-Play"
+        //if successfully pulled data, display to page
+        } else {
+            gamePrice.innerText = `$${gamePriceEl.products[0]["cib-price"]/100}`
+        }
+    })
     var gameDescription = document.getElementById("game-description");
     gameDescription.innerText = `${description.description_raw}`;
-
 };
 
 //pull similar games from different rawg api link
