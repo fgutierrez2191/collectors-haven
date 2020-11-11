@@ -28,20 +28,21 @@
         <br />
         <a class="waves-effect waves-light btn-small" id="back-button"><i class="material-icons left">arrow_back</i>go back</a>
         <div class="container main-container">   
-            <!--get json from https://api.rawg.io/api/games/league-of-legends-->
+            <!--get json from https://api.rawg.io/api/games/<game-id>-->
             <div class="title-container">
                     <div class="title">
                         <h2 id="game-title"></h2>
                         <p>Developer: <span id="game-developer"></span></p>
                         <!--#game-meta class changes based on metascore(0-49 = .meta-good / 50-74 = .meta-better / 75-100 = .meta-best)-->
                         <p>ESRB Rating: <span id="game-rating"></span> | Metascore: <span id="game-meta" class="meta-best"></span></p>
+                        <p>Price: $<span id="game-price">50</span></p>
                     </div>
                 <img id="game-img" src="#">
             </div>
             <p id="game-description"></p>
                 <br />
 
-            <!--show 4 similar games from https://api.rawg.io/api/games/league-of-legends/suggested-->
+            <!--show 4 similar games from https://api.rawg.io/api/games/<game-id>/suggested-->
             <h5>Games like this:</h5>
             <div class="similar-container" id="similar-games-container">
             </div>

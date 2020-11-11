@@ -49,7 +49,7 @@ var displayGameInfo = function(description) {
     if (description.esrb_rating != null){
         esrbRating.innerText=`${description.esrb_rating.name}`;
     } else {
-        //to fix that, the page will show N/A for such pages
+        //to fix that, the page will show N/A for such games
         esrbRating.innerText="N/A";
     }
 
@@ -58,7 +58,7 @@ var displayGameInfo = function(description) {
     if (description.metacritic != null) {
         metascore.innerText=`${description.metacritic}`;
     } else {
-        //to fix that, the page will show N/A for such pages
+        //to fix that, the page will show N/A for such games
         metascore.innerText="N/A"
     };
 
@@ -137,7 +137,5 @@ var displaySimilarGames = function(similar) {
 document.getElementById("back-button").addEventListener("click", () => {
     history.back()
   });
-
-/* similarGames();
-getGameInfo(); */
+  
 gameID();
