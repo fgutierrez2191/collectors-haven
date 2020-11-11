@@ -9,7 +9,7 @@ main.appendChild(row);
 
 var priceCall = function() {
     
-    var game = ['death stranding'];
+    var game = ['death stranding', 'borderlands 2', "uncharted"];
     
     game.forEach(vGame => { 
         fetch('https://www.pricecharting.com/api/products?t=b6347e4a9a79ac34e52eadd448892dfc961d6569&q=' + vGame)
@@ -18,7 +18,6 @@ var priceCall = function() {
         })
         .then(function(response) {
             console.log(response)
-              
                     // column
                 var column = document.createElement("div");
                 column.className = "col l2";
@@ -45,10 +44,7 @@ var priceCall = function() {
             card.appendChild(cardImage);
 
             var rawgImg = function() {
-
-                var search = "death stranding"
-        
-                fetch(' https://api.rawg.io/api/games?key=e847de5a9548492c99c3bc645cdafa81&search=' + search)
+                fetch('https://api.rawg.io/api/games?key=e847de5a9548492c99c3bc645cdafa81&search=' + vGame)
                 .then(function(response) {
                     return response.json();
                 })
@@ -57,7 +53,6 @@ var priceCall = function() {
                     var image = document.createElement("img");
                     image.setAttribute("src", response.results[0].background_image);
                     cardImage.appendChild(image);
-                    
                 })
             }
             rawgImg();
