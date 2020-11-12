@@ -11,3 +11,25 @@ body {
   main {
     flex: 1 0 auto;
   }
+
+    .carousel-item { 
+            margin: 3%; 
+            position: relative; 
+        } 
+  
+        .first-txt { 
+            position: absolute; 
+            top: 17px; 
+            left: 50px; 
+        } 
+  
+        .second-txt { 
+            position: absolute; 
+            bottom: 20px; 
+            left: 10px; 
+        } 
+
+        .img-container {
+        text-align: center;
+        display: block;
+      }
