@@ -1,10 +1,5 @@
-var apiKey = "e847de5a9548492c99c3bc645cdafa81"
 var searchInput = document.getElementById('search');
-//function to take the input from the search bar
-function getUserInput() {
-    var userInput = document.getElementById("search").value;
-    return userInput
-}
+
 //add searched values to local storage
 var searchHistory = JSON.parse(localStorage.getItem('search-history')) || [];
 gamebutton.addEventListener('click', function (event) {
@@ -14,11 +9,11 @@ var searchTerm = searchInput.value;
   localStorage.setItem('search', JSON.stringify(searchHistory));
   console.log(searchHistory);
 });
+
 //function to make fetch request to rawg api 
 function getRawgData() {
     var userInput = document.getElementById("search").value; 
     var gameStats = document.getElementById("search-results");
-    var gamePrice = document.getElementById("cib-price");
     console.log(userInput)
     fetch('https://api.rawg.io/api/games?key=e847de5a9548492c99c3bc645cdafa81&search=' + userInput)
     .then(function (response) {
@@ -26,24 +21,72 @@ function getRawgData() {
       })
       .then(function (data) {
         console.log(data);
-        gameStats.textContent = "";
         //add desired data to card
         for (var i=0; i<data.results.length; i++){
-        var main = document.querySelector("main")
-        var row = document.createElement("div");
-        row.setAttribute("class", "row")
-        main.appendChild(row);
-        //create column and append it to the row
-        var column = document.createElement("div");
-        column.setAttribute("class", "column")
-        row.appendChild(column);
-        //create card and append it to the column
-        var card = document.createElement("div");
-        card.setAttribute("class", "card white-text card-panel red lighten-2" );
-        column.appendChild(card);
+            var main = document.querySelector("main");
+            //ROW
+            var row = document.createElement("div");
+            row.className = "row";
+            main.appendChild(row);
 
+            //create column
+            var column = document.createElement("div");
+            column.className = "col l2";
+            row.appendChild(column);
+
+            //create card
+            var card = document.createElement("div");
+            card.className = "card"
+            column.appendChild(card);
+
+                //CARD Action
+                var cardAction = document.createElement("div");
+                cardAction.className = "card-action";
+                card.appendChild(cardAction);
+                    // Title
+                    var gameName = document.createElement("h4");
+                    gameName.className = "center-align";
+                    gameName.textContent = userInput;
+                    cardAction.appendChild(gameName);
+
+                //CARD Image
+                var cardImage = document.createElement("div");
+                cardImage.className = "card-image";
+                card.appendChild(cardImage);
+                    //IMAGE
+                    var gameImg = document.createElement("img");
+                    gameImg.setAttribute("src", data.results[0].background_image);
+                    cardImage.appendChild(gameImg);
+                    //ADD BTN
+                    var addBtn = document.createElement("span");
+                    addBtn.className = "btn btn-floating halfway-fab waves-effect waves-light red";
+                    addBtn.setAttribute("id", "addButton")
+                    cardImage.appendChild(addBtn);
+                            // PLUS ICON
+                        var icon = document.createElement("i");
+                        icon.className = "material-icons";
+                        icon.textContent = "add";
+                        addBtn.appendChild(icon);
+
+                //CARD Content
+                var cardContent = document.createElement("div");
+                cardContent.className = "card-content";
+                card.appendChild(cardContent);
+                    //Content Text
+                        // Unordered List
+                    var cardInfo = document.createElement("ul");
+                    cardInfo.className = "center-align";
+                    cardContent.appendChild(cardInfo);
+                            // List elements
+                                // 1
+                            var releaseDate = document.createElement("li");
+                            releaseDate.textContent = "Released on: " + data.results[0].released;
+                            cardContent.appendChild(releaseDate);
+                                // 2
+                            var rating = document.createElement("li");
+                            rating.textContent = "Rating out of 5: " + data.results[0].rating;
+                            cardContent.appendChild(rating);
         }
-        card.textContent = "Your game is available on the following consoles: " + data.results[0].platforms[0].platform.name;
         gameStats.appendChild(card)
     })
 }
@@ -52,7 +95,8 @@ document.getElementById("gamebutton").addEventListener("click", (event) => {
     event.preventDefault();
     getRawgData();
 });
-
-
-
-
+document.getElementById("addButton").addEventListener("click", (event) => {
+    var searchTerm = searchInput.value;
+    console.log("HHHHHHHH" + searchTerm);
+    localStorage.setItem('collection', searchTerm);
+});
