@@ -46,19 +46,6 @@ var priceCall = function() {
             cardImage.className = "card-image";
             card.appendChild(cardImage);
 
-            var rawgImg = function() {
-                fetch('https://api.rawg.io/api/games?key=e847de5a9548492c99c3bc645cdafa81&search=' + vGame)
-                .then(function(response) {
-                    return response.json();
-                })
-                .then(function(response) {
-                    console.log(response);
-                    var image = document.createElement("img");
-                    image.setAttribute("src", response.results[0].background_image);
-                    cardImage.appendChild(image);
-                })
-            }
-            rawgImg();
 
                 //CARD-CONTENT
             var cardContent = document.createElement("div");
@@ -77,6 +64,19 @@ var priceCall = function() {
                 descriptionLink.textContent = "Game Description";
                 descriptionLink.setAttribute("href", "./description.html")
                 cardContent.appendChild(descriptionLink);
+                var rawgImg = function() {
+                    fetch('https://api.rawg.io/api/games?key=e847de5a9548492c99c3bc645cdafa81&search=' + vGame)
+                    .then(function(response) {
+                        return response.json();
+                    })
+                    .then(function(response) {
+                        console.log(response);
+                        var image = document.createElement("img");
+                        image.setAttribute("src", response.results[0].background_image);
+                        cardImage.appendChild(image);
+                    })
+                }
+                rawgImg();
         })
     })
 }
