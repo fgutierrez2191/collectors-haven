@@ -56,9 +56,18 @@ var priceCall = function() {
                     var image = document.createElement("img");
                     image.setAttribute("src", response.results[0].background_image);
                     cardImage.appendChild(image);
+
+                    //slug
+                    var slug = response.results[0].slug;
+
+                    //LINK TO DESCRIPTION
+                var descriptionLink = document.createElement("a");
+                descriptionLink.textContent = "Game Description";
+                descriptionLink.setAttribute("href", "./description.html?game=" + slug);
+                cardContent.appendChild(descriptionLink);
                 })
             }
-            rawgImg();
+            
 
                 //CARD-CONTENT
             var cardContent = document.createElement("div");
@@ -72,11 +81,7 @@ var priceCall = function() {
                 var gameDescription = document.createElement("p");
                 gameDescription.textContent = "Cib-price: $" + response.products[0]["cib-price"] / 100;
                 cardContent.appendChild(gameDescription);
-                //LINK TO DESCRIPTION
-                var descriptionLink = document.createElement("a");
-                descriptionLink.textContent = "Game Description";
-                descriptionLink.setAttribute("href", "./description.html")
-                cardContent.appendChild(descriptionLink);
+                rawgImg();
         })
     })
 }
