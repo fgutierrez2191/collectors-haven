@@ -9,9 +9,9 @@ main.appendChild(row);
 
 var priceCall = function() {
 
-    // var game = localStorage.getItem("collection");
+    var game = localStorage.getItem('collection');
     
-    var game = ['death stranding', 'borderlands 2', 'uncharted 4', 'tonyhawk pro skater', 'skate 3', 'the last of us', 'horizon zero dawn', 'batman arkham city', 'bioshock', 'dishonored', 'ratchet and clank', 'disney infinite', 'final fantasy IX', 'time splitters 2'];
+     //var game = ['death stranding','borderlands 2','uncharted 4','tonyhawk pro skater', 'skate 3', 'the last of us', 'horizon zero dawn', 'batman arkham city', 'bioshock', 'dishonored', 'ratchet and clank', 'disney infinite', 'final fantasy IX', 'time splitters 2'];
     
 
     game.forEach(vGame => { 

@@ -60,11 +60,11 @@ function getRawgData() {
                     //ADD BTN
                     var addBtn = document.createElement("span");
                     addBtn.className = "btn btn-floating halfway-fab waves-effect waves-light red";
-                    addBtn.setAttribute("id", "addButton")
                     cardImage.appendChild(addBtn);
                             // PLUS ICON
                         var icon = document.createElement("i");
                         icon.className = "material-icons";
+                        icon.setAttribute("id", "addButton");
                         icon.textContent = "add";
                         addBtn.appendChild(icon);
 
@@ -95,10 +95,13 @@ document.getElementById("gamebutton").addEventListener("click", (event) => {
     event.preventDefault();
     getRawgData();
 });
+var collection = [];
 document.body.addEventListener
 ("click", (event) => {
-    if( event.srcElement.id == 'addButton' ) {
+    if( event.target.id == 'addButton' ) {
     var searchTerm = searchInput.value;
-    localStorage.setItem('collection', searchTerm);
+    collection.push(searchTerm);
+    console.log(collection);
+    localStorage.setItem('collection', JSON.stringify(collection));
     }
 });
