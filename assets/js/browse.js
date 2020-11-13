@@ -95,8 +95,10 @@ document.getElementById("gamebutton").addEventListener("click", (event) => {
     event.preventDefault();
     getRawgData();
 });
-document.getElementById("addButton").addEventListener("click", (event) => {
+document.body.addEventListener
+("click", (event) => {
+    if( event.srcElement.id == 'addButton' ) {
     var searchTerm = searchInput.value;
-    console.log("HHHHHHHH" + searchTerm);
     localStorage.setItem('collection', searchTerm);
+    }
 });
