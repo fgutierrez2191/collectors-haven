@@ -11,25 +11,23 @@ body {
   main {
     flex: 1 0 auto;
   }
-
-    .carousel-item { 
-            margin: 3%; 
-            position: relative; 
-        } 
-  
-        .first-txt { 
-            position: absolute; 
-            top: 17px; 
-            left: 50px; 
-        } 
-  
-        .second-txt { 
-            position: absolute; 
-            bottom: 20px; 
-            left: 10px; 
-        } 
-
-        .img-container {
-        text-align: center;
-        display: block;
-      }
+/* Container holding the image and the text */
+.container {
+  height: 400px;
+  width: 400px;
+  position: relative;
+}
+#image {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#text {
+  z-index: 100;
+  position: absolute;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  left: 150px;
+  top: 350px;
+}
