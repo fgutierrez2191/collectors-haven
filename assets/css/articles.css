@@ -1,0 +1,33 @@
+* {
+    font-family: 'Varela Round', sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+/* Container holding the image and the text */
+.container {
+  height: 400px;
+  width: 400px;
+  position: relative;
+}
+#image {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#text {
+  z-index: 100;
+  position: absolute;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  left: 150px;
+  top: 350px;
+}
