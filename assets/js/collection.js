@@ -9,10 +9,8 @@ main.appendChild(row);
 
 var priceCall = function() {
 
-    //var game = localStorage.getItem('collection');
-    
-    var game = ['death stranding','borderlands 2','uncharted 4','tonyhawk pro skater', 'skate 3', 'the last of us', 'horizon zero dawn', 'batman arkham city', 'bioshock', 'dishonored', 'ratchet and clank', 'disney infinite', 'final fantasy IX', 'time splitters 2'];
-    
+    var game = JSON.parse(localStorage.getItem('collection'));
+    console.log(typeof game);    
 
     game.forEach(vGame => { 
         fetch('https://www.pricecharting.com/api/products?t=b6347e4a9a79ac34e52eadd448892dfc961d6569&q=' + vGame)

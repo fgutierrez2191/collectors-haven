@@ -31,7 +31,7 @@ function getRawgData() {
 
             //create column
             var column = document.createElement("div");
-            column.className = "col l2";
+            column.className = "col l12";
             row.appendChild(column);
 
             //create card
