@@ -11,3 +11,7 @@ body {
 main {
     flex: 1 0 auto;
 }
+
+.row-margin {
+    margin-bottom: 100px;
+}

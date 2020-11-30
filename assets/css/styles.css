@@ -1,13 +1,31 @@
 * {
-    font-family: 'Varela Round', sans-serif;
+  font-family: "Varela Round", sans-serif;
 }
 
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+body,
+html {
+  height: 100%;
+}
 
-  main {
-    flex: 1 0 auto;
-  }
+main {
+  flex: 1 0 auto;
+}
+p {
+  font-size: 16px;
+}
+
+.hero-bg-img {
+  background-image: url("https://www.wallpaperskit.com/wallpapers/destiny-2-off-the-cliff-4k-tt-1920x1080.jpg");
+  height: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+#hero-adventure-margin {
+  margin-top: 300px;
+}

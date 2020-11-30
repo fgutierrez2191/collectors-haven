@@ -1,0 +1,109 @@
+* {
+  font-family: "Varela Round", sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.main-container {
+  padding-left: 2vw;
+  padding-right: 2vw;
+  border-right: 1px solid #ee6e73;
+  border-left: 1px solid #ee6e73;
+  min-height: 100%;
+}
+
+.waves-light {
+  background-color: #ee6e73;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title p {
+  font-style: italic;
+}
+
+.title span {
+  font-style: normal;
+}
+
+#game-rating {
+  border-radius: 15px;
+  background: #a8a8a8;
+  color: white;
+  padding: 5px;
+}
+
+#game-meta {
+  border-radius: 25px;
+  padding: 5px;
+}
+
+.meta-good {
+  background: red;
+  color: white;
+}
+
+.meta-better {
+  background: yellow;
+  color: black;
+}
+
+.meta-best {
+  background: green;
+  color: white;
+}
+
+.title-container img {
+  margin-right: 2vw;
+  max-width: 38%;
+  height: auto;
+  border-radius: 15px;
+  border: 6px solid #ee6e73;
+}
+
+p {
+  font-size: 16px;
+}
+
+.similar-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.similar-container .card {
+  border: 1.5px solid #ee6e73;
+  transition: 0.8s;
+  cursor: pointer;
+  width: 48%;
+  margin-right: 2%;
+}
+
+.similar-container .card:hover {
+  background: #fa8e93;
+}
+
+.similar-container .card img {
+  padding-top: 10px;
+  max-width: 580px;
+  max-height: 280px;
+}
+
+.card-image {
+  align-items: center;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+a {
+  color: black;
+}

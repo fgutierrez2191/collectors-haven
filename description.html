@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./assets/css/description.css">
+    <title>Collector's Haven</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="index.html" class="brand-logo">Collectors Haven</a>
+                <ul id="nav-mobile" class="right">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./collection.html">Collection</a></li>
+                    <li><a href="./browse.html">Browse</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <br />
+        <a class="waves-effect waves-light btn-small" id="back-button"><i class="material-icons left">arrow_back</i>go back</a>
+        <div class="container main-container">   
+            <!--get json from https://api.rawg.io/api/games/<game-id>-->
+            <div class="title-container">
+                    <div class="title">
+                        <h2 id="game-title"></h2>
+                        <p>Developer: <span id="game-developer"></span></p>
+                        <!--#game-meta class changes based on metascore(0-49 = .meta-good / 50-74 = .meta-better / 75-100 = .meta-best)-->
+                        <p>ESRB Rating: <span id="game-rating"></span> | Metascore: <span id="game-meta" class="meta-best"></span></p>
+                        <p>Price: <span id="game-price"></span></p>
+                    </div>
+                <img id="game-img" src="#">
+            </div>
+            <p id="game-description"></p>
+                <br />
+
+            <!--show 4 similar games from https://api.rawg.io/api/games/<game-id>/suggested-->
+            <h5>Games like this:</h5>
+            <div class="similar-container" id="similar-games-container">
+            </div>
+            
+        </div>
+    </main>
+
+         <!-- FOOTER -->
+         <footer class="page-footer">
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2014 Copyright Text
+                    <h6 class="grey-text">Made by: </h6>
+                    <a class="white-text" href="#" target="_blank">Kevin Simmons</a>
+                    <a class="white-text" href="https://github.com/aldrinburgos18/" target="_blank">Aldrin Burgos</a>
+                    <a class="white-text" href="#" target="_blank">Felix Gutierrez</a>
+                    <a class="white-text" href="#" target="_blank">Sarah Dawn</a>
+                </div>
+            </div>
+        </footer>
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script src="./assets/js/description.js"></script>
+</body>
+</html>
