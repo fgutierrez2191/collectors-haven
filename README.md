@@ -11,8 +11,6 @@ Built a searchable app, to give the user information about various video games t
 
 [Deployed Link](https://fgutierrez2191.github.io/collectors-haven/) 
 
-![This is a screenshot of the Collectors-Haven Application](/assets/images/screenshotofcollectorshaven.png)
-
 ### Technologies Used 
 - JavaScript
 - Html
@@ -22,3 +20,5 @@ Built a searchable app, to give the user information about various video games t
 
 ## Contribution
 Made by [Aldrin Burgos, Felix Gutierrez, Sarah McNeel, Kevin Simmons]
+
+![This is a screenshot of the Collectors-Haven Application](/assets/images/screenshot.png)
