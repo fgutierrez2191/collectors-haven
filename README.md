@@ -11,7 +11,7 @@ Built a searchable app, to give the user information about various video games t
 
 [Deployed Link](https://fgutierrez2191.github.io/collectors-haven/) 
 
-![](assets/images/screenshotofcollectorshaven.png)
+![This is a screenshot of the Collectors-Haven Application](/assets/images/screenshotofcollectorshaven.png)
 
 ### Technologies Used 
 - JavaScript
