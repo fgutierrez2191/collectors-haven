@@ -1,4 +1,4 @@
-    // GLOBAL VARIABLES
+      // GLOBAL VARIABLES
 var main = document.querySelector("main");
 var row = document.createElement("div");
     // CREATES ROW
