@@ -1,5 +1,9 @@
 # Collectors-Haven
 
+![Javascript](https://img.shields.io/badge/language-Javascript-blueviolet)
+![Materialize](https://img.shields.io/badge/framework-Materialize-ff69b4)
+
+
 An app for the gamer and game collector, Collectors-Haven allows you to search for games that your are interested in buying. You can also use our search features to get info about the current value of your game, and the value over time.
 ### Purpose
 
